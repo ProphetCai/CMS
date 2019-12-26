@@ -2,7 +2,9 @@ package com.briup.poll.dao;
 
 import com.briup.poll.bean.Customer;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
+@Component("com.briup.poll.bean")
 public interface ICustomerDao {
 
     @Insert("insert into cms_customer(username,password) values(#{username},#{password})")
