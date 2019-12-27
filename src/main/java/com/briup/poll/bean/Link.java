@@ -8,11 +8,11 @@ import java.io.Serializable;
 @ApiModel
 public class Link implements Serializable {
     private static final long serialVersionUID = 4759778516459848707L;
-    @ApiModelProperty("链接id")
+    @ApiModelProperty(value = "链接id")
     private Integer id;
-    @ApiModelProperty("链接名")
+    @ApiModelProperty(value = "链接名")
     private String name;
-    @ApiModelProperty("链接url")
+    @ApiModelProperty(value = "链接url")
     private String url;
 
     public Link() {

@@ -17,8 +17,8 @@ public class ArticleServerImpl {
     public void saveOrUpdate(Article article){
         if(article.getId()!=null){
             Article sessionArticle = (Article) dao.findOne(article.getId());
+            sessionArticle.setCategory(article.getCategory());
             sessionArticle.setAuthor(article.getAuthor());
-            sessionArticle.setCategory_id(article.getCategory_id());
             sessionArticle.setClickTimes(article.getClickTimes());
             sessionArticle.setContent(article.getContent());
             sessionArticle.setId(article.getId());

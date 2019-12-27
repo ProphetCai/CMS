@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/Article")
-@Api(description = "这个是作品管理")
+@Api(description = "这个是信息管理")
 public class ArticleController {
     @Autowired
     private ArticleServerImpl service;
 
     @GetMapping("/saveOrUdate")
-    @ApiOperation("添加或修改作品")
+    @ApiOperation("添加或修改信息")
     public Message<String> addOrUpdateLink(Article article){
         try {
             service.saveOrUpdate(article);
@@ -30,7 +30,7 @@ public class ArticleController {
         return MessageUtil.success("success");
     }
     @GetMapping("/delete")
-    @ApiOperation("删除作品")
+    @ApiOperation("删除信息")
     public Message<String> delete(Integer id){
         try {
 
@@ -41,7 +41,7 @@ public class ArticleController {
         return MessageUtil.success("success");
     }
     @GetMapping("/find")
-    @ApiOperation("查找作品")
+    @ApiOperation("查找信息")
     public Message<Article> findOne(Integer id){
         Article article = new Article();
         try {

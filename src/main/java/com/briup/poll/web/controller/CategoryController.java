@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/category")
-@Api(description ="这个是类型管理")
+@Api(description ="这个是栏目管理")
 public class CategoryController {
     @Autowired
     private CategoryImpl impl;
 
     @GetMapping("/saveOrUpdate")
-    @ApiOperation("添加或修改种类")
+    @ApiOperation("添加或修改栏目")
     public Message<String> save(Category category){
         try {
             impl.saveOrUpdate(category);

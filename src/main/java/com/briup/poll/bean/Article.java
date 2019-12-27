@@ -1,24 +1,34 @@
 package com.briup.poll.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "cms_article")
+@ApiModel
 public class Article implements Serializable {
     private static final long serialVersionUID = 7737537637749861950L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(value = "信息id")
     private Integer id;
+    @ApiModelProperty(value = "作者")
     private String author;
+    @ApiModelProperty(value = "点击量",hidden = true)
     private int clickTimes;
+    @ApiModelProperty(value = "内容")
     private String content;
+    @ApiModelProperty(value = "发布时间",hidden = true)
     private Date publishDate;
+    @ApiModelProperty(value = "标题")
     private String title;
-    private int category_id;
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Article() {
 
@@ -74,11 +84,11 @@ public class Article implements Serializable {
         this.title = title;
     }
 
-    public int getCategory_id() {
-        return category_id;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
