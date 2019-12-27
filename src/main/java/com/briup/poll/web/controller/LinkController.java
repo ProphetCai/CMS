@@ -52,7 +52,7 @@ public class LinkController {
             return MessageUtil.success("success");
         }*/
         @GetMapping("/selectById")
-        @ApiOperation("通过id查询")
+        @ApiOperation("查询")
         public Message<Link> selectById(Integer id){
             Link link = new Link();
             try{
