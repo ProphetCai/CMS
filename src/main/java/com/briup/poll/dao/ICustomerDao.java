@@ -19,4 +19,7 @@ public interface ICustomerDao {
 
     @Select("select * from cms_customer where id=#{id}")
     public Customer selectCustomer(Integer id);
+
+    @Select("select * from cms_customer where username=#{username}")
+    public Customer findCustomerByName(String username);
 }
